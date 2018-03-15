@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  val_unitario: 1
+  cod_barras: MyString
+
+two:
+  nome: MyString
+  val_unitario: 1
+  cod_barras: MyString
