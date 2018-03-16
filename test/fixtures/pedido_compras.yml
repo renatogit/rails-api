@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_pedido: 1
+  data_pedido: 2018-03-16
+  fk_cliente: 1
+
+two:
+  num_pedido: 1
+  data_pedido: 2018-03-16
+  fk_cliente: 1

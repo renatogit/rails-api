@@ -16,13 +16,13 @@ class ClientesController < ApplicationController
   # POST /clientes
   def create
     @cliente = Cliente.new(cliente_params)
-    @cliente.save
+    #@cliente.save
 
-   # if @cliente.save
-    #  render json: @cliente, status: :created, location: @cliente
-   # else
-    #  render json: @cliente.errors, status: :unprocessable_entity
-   # end
+   if @cliente.save
+     render json: @cliente, status: :created, location: @cliente
+    else
+     render json: @cliente.errors, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /clientes/1
