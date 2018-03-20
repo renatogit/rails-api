@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180316234448) do
+ActiveRecord::Schema.define(version: 20180320011040) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nome"
@@ -22,18 +22,22 @@ ActiveRecord::Schema.define(version: 20180316234448) do
 
   create_table "item_pedidos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "quantidade"
-    t.integer "fk_produto"
-    t.integer "fk_ped_compra"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "produtos_id"
+    t.bigint "cliente_id"
+    t.index ["cliente_id"], name: "index_item_pedidos_on_cliente_id"
+    t.index ["produtos_id"], name: "index_item_pedidos_on_produtos_id"
   end
 
   create_table "pedido_compras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "num_pedido"
     t.date "data_pedido"
-    t.integer "fk_cliente"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
+    t.bigint "item_pedido_id"
+    t.index ["item_pedido_id"], name: "index_pedido_compras_on_item_pedido_id"
   end
 
   create_table "produtos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -44,4 +48,7 @@ ActiveRecord::Schema.define(version: 20180316234448) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "item_pedidos", "clientes"
+  add_foreign_key "item_pedidos", "produtos", column: "produtos_id"
+  add_foreign_key "pedido_compras", "item_pedidos"
 end
