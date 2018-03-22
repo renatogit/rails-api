@@ -1,5 +1,5 @@
 class ClientesController < ApplicationController
-  before_action :set_cliente, only: [:show, :update, :destroy]
+  before_action :set_cliente, only: [:create, :show, :update, :destroy]
 
   # GET /clientes
   def index
@@ -16,13 +16,12 @@ class ClientesController < ApplicationController
   # POST /clientes
   def create
     @cliente = Cliente.new(cliente_params)
-    @cliente.save
 
-   # if @cliente.save
-    #  render json: @cliente, status: :created, location: @cliente
-   # else
-    #  render json: @cliente.errors, status: :unprocessable_entity
-   # end
+    if @cliente.save
+      render json: @cliente, status: :created, location: @cliente
+    else
+      render json: @cliente.errors, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /clientes/1
@@ -42,7 +41,7 @@ class ClientesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cliente
-      @cliente = Cliente.find(params[:id])
+      @cliente = Cliente.find_by(id: params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :produtos
   resources :clientes
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :produtos
+  resources :item_pedidos
+  resources :pedido_compras
+ 
 end
