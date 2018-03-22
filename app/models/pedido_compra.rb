@@ -1,3 +1,3 @@
 class PedidoCompra < ApplicationRecord
-  belongs_to : item_pedidos
+  belongs_to :item_pedido
 end

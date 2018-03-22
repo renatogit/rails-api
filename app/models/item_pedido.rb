@@ -1,5 +1,5 @@
 class ItemPedido < ApplicationRecord
-  belongs_to :clientes
-  belongs_to :produtos
-  has_many :pedido_compras
+  belongs_to :produto
+  belongs_to :cliente
+  has_many :produto_compra
 end

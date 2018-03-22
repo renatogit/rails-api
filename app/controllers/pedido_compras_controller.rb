@@ -41,11 +41,11 @@ class PedidoComprasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pedido_compra
-      @pedido_compra = PedidoCompra.find(params[:id])
+      @pedido_compra = PedidoCompra.find_by(id: params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def pedido_compra_params
-      params.require(:pedido_compra).permit(:num_pedido, :data_pedido, :fk_cliente)
+      params.require(:pedido_compra).permit(:num_pedido, :data_pedido, :status, :item_pedido_id)
     end
 end
