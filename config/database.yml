@@ -26,7 +26,7 @@ development:
 
 test:
   <<: *default
-  database: test
+  database: rest_api_test
 
 # production:
 #   <<: *default
