@@ -3,5 +3,4 @@ Rails.application.routes.draw do
   resources :produtos
   resources :item_pedidos
   resources :pedido_compras
- 
 end
