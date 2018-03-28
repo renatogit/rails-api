@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20180320175659) do
 
   create_table "produtos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nome"
-    t.decimal "valor_unitario", precision: 10
+    t.decimal "valor_unitario", precision: 15, scale: 2
     t.string "cod_barras"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
